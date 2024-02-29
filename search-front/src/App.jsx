@@ -24,23 +24,15 @@ function App() {
     async function initProducts() {
       try {
         const { data } = await axios.get(`${API_URL}/`);
-        console.log("in App component: ", data);
-        
-        if (data.length > 0) {
-          setProducts(data);
-        } else {
-          // Muestra un alert si no hay productos
-          alert('No se cargaron productos desde el backend.');
-        }
+        if (data.length > 0) setProducts(data);
       } catch (error) {
-        // Muestra un alert si hay un error en la solicitud
-        alert('Error al cargar productos desde el backend.');
-        console.error('Error en la solicitud:', error);
+        //alert("No se cargaron productos desde el backend.");
+        console.error(error);
       }
     }
-
     initProducts();
   }, []);
+
 
   return (
     <>

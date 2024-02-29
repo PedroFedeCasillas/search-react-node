@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import "./ProductDetail.css"; // Agrega el archivo CSS para los estilos
+import "./ProductDetail.css"; 
+
+const API_URL = "http://localhost:3001/api"
 
 export default function ProductDetail() {
 
@@ -13,7 +15,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     async function productDetail() {
-      const { data } = await axios.get(`http://localhost:3001/api/detail?id=${id}`);
+      const { data } = await axios.get(`${API_URL}/detail?id=${id}`);
       if (data) setProduct(data);
     }
     productDetail();
