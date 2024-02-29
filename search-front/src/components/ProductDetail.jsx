@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -12,7 +13,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     async function productDetail() {
-      const { data } = await axios.get(`http://localhost:5040/api/detail?id=${id}`);
+      const { data } = await axios.get(`http://localhost:3001/api/detail?id=${id}`);
       if (data) setProduct(data);
     }
     productDetail();
